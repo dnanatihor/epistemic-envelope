@@ -13,4 +13,5 @@ and this project uses [Semantic Versioning](https://semver.org/).
 - Pydantic envelope models and `validate()` for Level 1 and Level 2.
 - Envelope builder, inference policy enforcement, and deterministic LLM rendering.
 - FastMCP decorator and middleware that map tool results into envelopes.
+- Reference catalog server over fixture data, with static inferences.
 - Package baseline with ruff, mypy, pytest, pre-commit, and CI.

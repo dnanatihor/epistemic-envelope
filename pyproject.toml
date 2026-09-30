@@ -44,8 +44,9 @@ select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 python_version = "3.11"
 strict = true
 mypy_path = "src"
-files = ["src/epienv", "scripts"]
+files = ["src/epienv", "scripts", "examples"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+pythonpath = ["."]

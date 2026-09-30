@@ -1,0 +1,365 @@
+{
+  "assets": [
+    {
+      "id": "customers",
+      "type": "table",
+      "name": "customers",
+      "table": null,
+      "data_type": null
+    },
+    {
+      "id": "orders",
+      "type": "table",
+      "name": "orders",
+      "table": null,
+      "data_type": null
+    },
+    {
+      "id": "payments",
+      "type": "table",
+      "name": "payments",
+      "table": null,
+      "data_type": null
+    },
+    {
+      "id": "col_email",
+      "type": "column",
+      "name": "email",
+      "table": "customers",
+      "data_type": "varchar"
+    },
+    {
+      "id": "col_name",
+      "type": "column",
+      "name": "name",
+      "table": "customers",
+      "data_type": "varchar"
+    },
+    {
+      "id": "col_country",
+      "type": "column",
+      "name": "country",
+      "table": "customers",
+      "data_type": "varchar"
+    },
+    {
+      "id": "col_signup_at",
+      "type": "column",
+      "name": "signup_at",
+      "table": "customers",
+      "data_type": "timestamp"
+    },
+    {
+      "id": "col_order_id",
+      "type": "column",
+      "name": "order_id",
+      "table": "orders",
+      "data_type": "int"
+    },
+    {
+      "id": "col_customer_id",
+      "type": "column",
+      "name": "customer_id",
+      "table": "orders",
+      "data_type": "int"
+    },
+    {
+      "id": "col_amount",
+      "type": "column",
+      "name": "amount",
+      "table": "orders",
+      "data_type": "numeric"
+    },
+    {
+      "id": "col_status",
+      "type": "column",
+      "name": "status",
+      "table": "orders",
+      "data_type": "varchar"
+    },
+    {
+      "id": "col_payment_id",
+      "type": "column",
+      "name": "payment_id",
+      "table": "payments",
+      "data_type": "int"
+    },
+    {
+      "id": "col_order_ref",
+      "type": "column",
+      "name": "order_ref",
+      "table": "payments",
+      "data_type": "int"
+    },
+    {
+      "id": "col_method",
+      "type": "column",
+      "name": "method",
+      "table": "payments",
+      "data_type": "varchar"
+    },
+    {
+      "id": "col_paid_at",
+      "type": "column",
+      "name": "paid_at",
+      "table": "payments",
+      "data_type": "timestamp"
+    }
+  ],
+  "dq_results": {
+    "col_email": [
+      {
+        "rule_id": "DQ-17",
+        "statement": "Email format rule passed",
+        "result": "pass",
+        "value": 0.998,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_name": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "name completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_country": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "country completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_signup_at": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "signup_at completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_order_id": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "order_id completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_customer_id": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "customer_id completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_amount": [
+      {
+        "rule_id": "DQ-3",
+        "statement": "Amount non-negative rule failed",
+        "result": "fail",
+        "value": 0.11,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_status": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "status completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_payment_id": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "payment_id completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_order_ref": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "order_ref completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_method": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "method completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "col_paid_at": [
+      {
+        "rule_id": "DQ-1",
+        "statement": "paid_at completeness rule passed",
+        "result": "pass",
+        "value": 1.0,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z"
+      }
+    ]
+  },
+  "profiles": {
+    "col_email": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.02,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_name": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_country": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_signup_at": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_order_id": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_customer_id": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_amount": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_status": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_payment_id": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_order_ref": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_method": {
+      "observed_at": "2024-01-01T00:00:00Z",
+      "profile_run_id": "pr_1",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    },
+    "col_paid_at": {
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9",
+      "metrics": [
+        {
+          "metric": "null_pct",
+          "value": 0.0,
+          "unit": "ratio"
+        }
+      ]
+    }
+  }
+}

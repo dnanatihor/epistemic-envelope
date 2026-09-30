@@ -10,7 +10,13 @@ AI-facing data APIs return results of approved data-quality rules, statistics fr
 
 ## Quickstart
 
-Planned for the reference catalog server: `uv run python -m examples.catalog_server`. That command is not available in this revision.
+Start the reference catalog server (stdio MCP). It reads the fixture catalog and needs no other services.
+
+```bash
+uv run python -m examples.catalog_server
+```
+
+`EPIENV_INFERENCE=off` withholds AI inferences.
 
 ## Licence
 
