@@ -6,7 +6,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import SchemaError
@@ -51,6 +51,26 @@ class SuiteReport:
     def ok(self) -> bool:
         """True when every acceptance check on the suite passed."""
         return not self.problems
+
+
+def load_schema(name: str, root: Path | None = None) -> dict[str, Any]:
+    """Load a published schema by filename, such as ``envelope.v0.1.json``."""
+    schema_root = root if root is not None else _package_root()
+    loaded = _load_json(schema_root / "schema" / name)
+    if not isinstance(loaded, dict):
+        message = f"{name} must be a JSON object"
+        raise TypeError(message)
+    return cast(dict[str, Any], loaded)
+
+
+def _package_root() -> Path:
+    for parent in Path(__file__).resolve().parents:
+        if (parent / "schema" / "envelope.v0.1.json").is_file() and (
+            parent / "pyproject.toml"
+        ).is_file():
+            return parent
+    message = "normative schema directory was not found"
+    raise FileNotFoundError(message)
 
 
 def check_suite(root: Path) -> SuiteReport:

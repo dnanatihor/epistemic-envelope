@@ -12,4 +12,5 @@ and this project uses [Semantic Versioning](https://semver.org/).
 - Normative standard v0.1, JSON Schemas, and the conformance suite.
 - Pydantic envelope models and `validate()` for Level 1 and Level 2.
 - Envelope builder, inference policy enforcement, and deterministic LLM rendering.
+- FastMCP decorator and middleware that map tool results into envelopes.
 - Package baseline with ruff, mypy, pytest, pre-commit, and CI.
