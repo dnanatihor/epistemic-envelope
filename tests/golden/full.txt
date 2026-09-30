@@ -1,0 +1,7 @@
+## Certified findings (authoritative)
+- [cf-1] Email format rule passed — rule DQ-17, pass, certified by steward_a on 2026-09-20
+## Profiling observations (measured; may be stale)
+- [po-1] null_pct = 0.02 (observed 2026-09-20, run pr_9)
+## AI inferences (unverified; do not present as fact)
+- [ai-1] Likely contains personal emails — model provider/model-id, based on [po-1], review: unreviewed
+Governance notice: AI-generated content is unverified and not certified.

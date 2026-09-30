@@ -1,0 +1,6 @@
+## Certified findings (authoritative)
+- none
+## Profiling observations (measured; may be stale)
+- none
+## AI inferences (unverified; do not present as fact)
+- none

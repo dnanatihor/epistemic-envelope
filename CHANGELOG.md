@@ -11,4 +11,5 @@ and this project uses [Semantic Versioning](https://semver.org/).
 - Repository created from SPEC.md.
 - Normative standard v0.1, JSON Schemas, and the conformance suite.
 - Pydantic envelope models and `validate()` for Level 1 and Level 2.
+- Envelope builder, inference policy enforcement, and deterministic LLM rendering.
 - Package baseline with ruff, mypy, pytest, pre-commit, and CI.
