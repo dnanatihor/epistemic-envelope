@@ -1,0 +1,31 @@
+{
+  "inference_permitted": true,
+  "asset": {
+    "id": "col_email",
+    "claims": [
+      {
+        "epistemic_layer": "observed",
+        "id": "po-1",
+        "metric": "null_pct",
+        "value": 0.02,
+        "unit": "ratio",
+        "observed_at": "2026-09-20T00:00:00Z",
+        "profile_run_id": "pr_9"
+      },
+      {
+        "epistemic_layer": "inferred",
+        "id": "ai-1",
+        "kind": "classification",
+        "statement": "Likely contains personal email addresses",
+        "reported_confidence": 0.9,
+        "model": "provider/model-id",
+        "generated_at": "2026-09-20T00:00:00Z",
+        "basis": [
+          "does-not-exist"
+        ],
+        "review_status": "unreviewed"
+      }
+    ]
+  },
+  "governance_notice": "AI-generated content is unverified and not certified."
+}

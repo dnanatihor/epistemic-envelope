@@ -1,0 +1,38 @@
+{
+  "envelope_version": "0.1",
+  "subject": {
+    "type": "column",
+    "id": "col_email",
+    "name": "email"
+  },
+  "attributes": {
+    "data_type": "varchar",
+    "table": "customers"
+  },
+  "inference_permitted": true,
+  "certified_findings": [
+    {
+      "id": "cf-1",
+      "statement": "Email format rule passed",
+      "rule_id": "DQ-17",
+      "result": "pass",
+      "value": 0.998,
+      "certified_by": "steward_a",
+      "certified_at": "2026-09-20T00:00:00Z",
+      "evidence_uri": null,
+      "generated_at": "2026-09-20T00:00:00Z"
+    }
+  ],
+  "profiling_observations": [
+    {
+      "id": "po-1",
+      "metric": "null_pct",
+      "value": 0.02,
+      "unit": "ratio",
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9"
+    }
+  ],
+  "ai_inferences": [],
+  "curated_metadata": []
+}

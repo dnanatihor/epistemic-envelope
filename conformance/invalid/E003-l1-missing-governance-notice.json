@@ -1,0 +1,21 @@
+{
+  "inference_permitted": true,
+  "asset": {
+    "id": "col_email",
+    "claims": [
+      {
+        "epistemic_layer": "inferred",
+        "id": "ai-1",
+        "kind": "classification",
+        "statement": "Likely contains personal email addresses",
+        "reported_confidence": 0.9,
+        "model": "provider/model-id",
+        "generated_at": "2026-09-20T00:00:00Z",
+        "basis": [
+          "po-1"
+        ],
+        "review_status": "unreviewed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "inference_permitted": true,
+  "asset": {
+    "id": "col_email",
+    "claims": [
+      {
+        "epistemic_layer": "curated",
+        "id": "cm-1",
+        "statement": "Business email of the account owner",
+        "authored_by": "steward_a",
+        "authored_at": "2026-09-20T00:00:00Z"
+      }
+    ]
+  }
+}

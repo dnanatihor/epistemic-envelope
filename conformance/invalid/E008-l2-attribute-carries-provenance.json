@@ -1,0 +1,54 @@
+{
+  "envelope_version": "0.1",
+  "subject": {
+    "type": "column",
+    "id": "col_email",
+    "name": "email"
+  },
+  "attributes": {
+    "note": {
+      "model": "provider/model-id",
+      "generated_at": "2026-09-20T00:00:00Z",
+      "epistemic_layer": "inferred"
+    }
+  },
+  "inference_permitted": true,
+  "governance_notice": "AI-generated content is unverified and not certified.",
+  "certified_findings": [
+    {
+      "id": "cf-1",
+      "statement": "Email format rule passed",
+      "rule_id": "DQ-17",
+      "result": "pass",
+      "value": 0.998,
+      "certified_by": "steward_a",
+      "certified_at": "2026-09-20T00:00:00Z",
+      "evidence_uri": null
+    }
+  ],
+  "profiling_observations": [
+    {
+      "id": "po-1",
+      "metric": "null_pct",
+      "value": 0.02,
+      "unit": "ratio",
+      "observed_at": "2026-09-20T00:00:00Z",
+      "profile_run_id": "pr_9"
+    }
+  ],
+  "ai_inferences": [
+    {
+      "id": "ai-1",
+      "kind": "classification",
+      "statement": "Likely contains personal email addresses",
+      "reported_confidence": 0.9,
+      "model": "provider/model-id",
+      "generated_at": "2026-09-20T00:00:00Z",
+      "basis": [
+        "po-1"
+      ],
+      "review_status": "unreviewed"
+    }
+  ],
+  "curated_metadata": []
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "labelled-object.v0.1.json",
+  "title": "Epistemic labelled object",
+  "description": "Level 1 inline label, version 0.1. Normative companion to spec/SPEC-ENVELOPE.md. A Level 1 response may embed these objects among existing API members.",
+  "type": "object",
+  "required": ["epistemic_layer"],
+  "properties": {
+    "epistemic_layer": {
+      "enum": ["certified", "observed", "inferred", "curated"]
+    },
+    "id": { "type": "string" },
+    "statement": { "type": "string" },
+    "rule_id": { "type": "string" },
+    "result": { "type": "string" },
+    "value": { "type": "number" },
+    "certified_by": { "type": "string" },
+    "certified_at": { "type": "string", "format": "date-time" },
+    "evidence_uri": { "type": ["string", "null"] },
+    "metric": { "type": "string" },
+    "unit": { "type": "string" },
+    "observed_at": { "type": "string", "format": "date-time" },
+    "profile_run_id": { "type": "string" },
+    "kind": { "type": "string" },
+    "reported_confidence": { "type": "number" },
+    "model": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "basis": { "type": "array", "items": { "type": "string" } },
+    "review_status": { "enum": ["unreviewed", "accepted", "rejected"] },
+    "authored_by": { "type": "string" },
+    "authored_at": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "epistemic_layer": { "const": "certified" } },
+        "required": ["epistemic_layer"]
+      },
+      "then": {
+        "required": ["id", "rule_id", "certified_by", "certified_at"],
+        "allOf": [
+          { "not": { "required": ["model"] } },
+          { "not": { "required": ["generated_at"] } }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": { "epistemic_layer": { "const": "observed" } },
+        "required": ["epistemic_layer"]
+      },
+      "then": { "required": ["id", "observed_at", "profile_run_id"] }
+    },
+    {
+      "if": {
+        "properties": { "epistemic_layer": { "const": "inferred" } },
+        "required": ["epistemic_layer"]
+      },
+      "then": { "required": ["id", "model", "generated_at"] }
+    },
+    {
+      "if": {
+        "properties": { "epistemic_layer": { "const": "curated" } },
+        "required": ["epistemic_layer"]
+      },
+      "then": { "required": ["id", "authored_by", "authored_at"] }
+    }
+  ]
+}

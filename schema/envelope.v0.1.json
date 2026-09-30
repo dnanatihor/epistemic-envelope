@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "envelope.v0.1.json",
+  "title": "Epistemic envelope",
+  "description": "Level 2 epistemic envelope, version 0.1. Normative companion to spec/SPEC-ENVELOPE.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["envelope_version", "subject", "inference_permitted"],
+  "properties": {
+    "envelope_version": { "const": "0.1" },
+    "subject": { "$ref": "#/$defs/subject" },
+    "attributes": { "$ref": "#/$defs/attributes" },
+    "inference_permitted": { "type": "boolean" },
+    "governance_notice": { "type": "string" },
+    "certified_findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/certifiedFinding" }
+    },
+    "profiling_observations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/observation" }
+    },
+    "ai_inferences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/inference" }
+    },
+    "curated_metadata": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/curatedStatement" }
+    }
+  },
+  "$defs": {
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id", "name"],
+      "properties": {
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean"] }
+    },
+    "certifiedFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "rule_id", "certified_by", "certified_at"],
+      "properties": {
+        "id": { "type": "string" },
+        "statement": { "type": "string" },
+        "rule_id": { "type": "string" },
+        "result": { "type": "string" },
+        "value": { "type": "number" },
+        "certified_by": { "type": "string" },
+        "certified_at": { "type": "string", "format": "date-time" },
+        "evidence_uri": { "type": ["string", "null"] }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "observed_at", "profile_run_id"],
+      "properties": {
+        "id": { "type": "string" },
+        "metric": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "observed_at": { "type": "string", "format": "date-time" },
+        "profile_run_id": { "type": "string" }
+      }
+    },
+    "inference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "model", "generated_at"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string" },
+        "statement": { "type": "string" },
+        "reported_confidence": { "type": "number" },
+        "model": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "basis": { "type": "array", "items": { "type": "string" } },
+        "review_status": { "enum": ["unreviewed", "accepted", "rejected"] }
+      }
+    },
+    "curatedStatement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "authored_by", "authored_at"],
+      "properties": {
+        "id": { "type": "string" },
+        "statement": { "type": "string" },
+        "authored_by": { "type": "string" },
+        "authored_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "inference_permitted": true,
+  "asset": {
+    "id": "col_email",
+    "claims": [
+      {
+        "epistemic_layer": "certified",
+        "id": "cf-1",
+        "statement": "Email format rule passed",
+        "rule_id": "DQ-17",
+        "result": "pass",
+        "value": 0.998,
+        "certified_by": "steward_a",
+        "certified_at": "2026-09-20T00:00:00Z",
+        "evidence_uri": null,
+        "model": "provider/model-id"
+      }
+    ]
+  }
+}

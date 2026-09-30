@@ -1,0 +1,13 @@
+{
+  "envelope_version": "0.1",
+  "subject": {
+    "type": "column",
+    "id": "col_email",
+    "name": "email"
+  },
+  "inference_permitted": false,
+  "certified_findings": [],
+  "profiling_observations": [],
+  "ai_inferences": [],
+  "curated_metadata": []
+}

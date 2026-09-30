@@ -1,0 +1,22 @@
+---
+description: Engineering rules for epistemic-envelope (generated from SPEC.md by the portfolio bootstrap)
+globs:
+alwaysApply: true
+---
+
+# Shared rules
+
+- SPEC.md is the source of truth. Implement only the phase you are asked to implement.
+- Python 3.11+, uv, full type hints, mypy --strict on src/, ruff format and ruff check.
+- Write tests first wherever SPEC.md gives expected outputs.
+- No network access in tests; LLMs and external APIs are stubbed.
+- Never log or commit secrets. Never commit real personal data.
+- Record significant decisions and spike outcomes as ADRs in docs/adr/ using the template there.
+- If SPEC.md is ambiguous, stop and list the ambiguity; do not invent behaviour.
+
+# Project rules (from SPEC.md, Appendix A)
+
+- SPEC.md is the build spec; spec/SPEC-ENVELOPE.md is the normative standard. Code must conform to the standard, never the reverse.
+- JSON Schema files in schema/ are normative; pydantic models mirror them.
+- validate() never raises on invalid input; it returns Violations with codes from §4.3.
+- to_llm_context() output must be deterministic.
