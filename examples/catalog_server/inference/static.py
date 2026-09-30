@@ -12,13 +12,26 @@ _TS = "2026-09-20T00:00:00Z"
 class InferenceProvider(Protocol):
     """Produce inferences for one asset from the ids of its observations."""
 
-    def infer(self, asset_id: str, observation_ids: list[str]) -> list[Inference]: ...
+    def infer(
+        self,
+        asset_id: str,
+        observation_ids: list[str],
+        profile: object | None = None,
+        dq: object | None = None,
+    ) -> list[Inference]: ...
 
 
 class StaticInferenceProvider:
     """Return a fixed classification for columns that have one in the demo map."""
 
-    def infer(self, asset_id: str, observation_ids: list[str]) -> list[Inference]:
+    def infer(
+        self,
+        asset_id: str,
+        observation_ids: list[str],
+        profile: object | None = None,
+        dq: object | None = None,
+    ) -> list[Inference]:
+        del profile, dq
         if asset_id != "col_email":
             return []
         basis = observation_ids[:1]

@@ -123,7 +123,16 @@ def _asset_envelope(
     asset = catalog.get_asset(asset_id)
     findings = _findings(catalog, asset_id) if quality else []
     observations = _observations(catalog, asset_id) if profile else []
-    produced = provider.infer(asset_id, [item.id for item in observations]) if inferred else []
+    produced = (
+        provider.infer(
+            asset_id,
+            [item.id for item in observations],
+            catalog.get_profile(asset_id) if profile else None,
+            catalog.get_dq_results(asset_id) if quality else None,
+        )
+        if inferred
+        else []
+    )
     notice = DEFAULT_NOTICE if produced else None
     return Envelope(
         subject=_subject(asset),

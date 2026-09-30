@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "name": "email_format",
+      "fullyQualifiedName": "sample.shop.customers.email.email_format",
+      "entityLink": "<#E::table::sample.shop.customers::columns::email>",
+      "updatedBy": "steward_a",
+      "testCaseResult": {
+        "timestamp": 1789862400000,
+        "testCaseStatus": "Success",
+        "result": "Email format rule passed"
+      }
+    }
+  ],
+  "paging": {
+    "total": 1
+  }
+}

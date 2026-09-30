@@ -1,0 +1,16 @@
+site_name: Epistemic Envelope
+docs_dir: docs
+site_dir: site
+nav:
+  - Home: index.md
+  - Backends: backends.md
+  - Release: release.md
+  - Decisions:
+      - FastMCP: adr/0001-fastmcp-integration.md
+      - Level 1 rules: adr/0002-level-1-rule-mapping.md
+      - OpenMetadata paths: adr/0003-openmetadata-endpoints.md
+theme:
+  name: mkdocs
+exclude_docs: |
+  adr/0000-template.md
+  demo.tape

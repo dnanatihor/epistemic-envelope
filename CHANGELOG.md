@@ -14,4 +14,7 @@ and this project uses [Semantic Versioning](https://semver.org/).
 - Envelope builder, inference policy enforcement, and deterministic LLM rendering.
 - FastMCP decorator and middleware that map tool results into envelopes.
 - Reference catalog server over fixture data, with static inferences.
+- Optional OpenMetadata backend and an LLM inference provider with stubbed tests.
+- Release workflow that publishes a tag to TestPyPI and then PyPI.
+- MkDocs site and a Phase 5 README with fixture output.
 - Package baseline with ruff, mypy, pytest, pre-commit, and CI.

@@ -55,22 +55,33 @@ class SuiteReport:
 
 def load_schema(name: str, root: Path | None = None) -> dict[str, Any]:
     """Load a published schema by filename, such as ``envelope.v0.1.json``."""
-    schema_root = root if root is not None else _package_root()
-    loaded = _load_json(schema_root / "schema" / name)
+    path = _schema_path(name, root)
+    loaded = _load_json(path) if path is not None else _load_packaged_schema(name)
     if not isinstance(loaded, dict):
         message = f"{name} must be a JSON object"
         raise TypeError(message)
     return cast(dict[str, Any], loaded)
 
 
-def _package_root() -> Path:
+def _schema_path(name: str, root: Path | None) -> Path | None:
+    if root is not None:
+        candidate = root / "schema" / name
+        return candidate if candidate.is_file() else None
     for parent in Path(__file__).resolve().parents:
-        if (parent / "schema" / "envelope.v0.1.json").is_file() and (
-            parent / "pyproject.toml"
-        ).is_file():
-            return parent
-    message = "normative schema directory was not found"
-    raise FileNotFoundError(message)
+        candidate = parent / "schema" / name
+        if candidate.is_file() and (parent / "pyproject.toml").is_file():
+            return candidate
+    return None
+
+
+def _load_packaged_schema(name: str) -> Any:
+    from importlib.resources import files
+
+    resource = files("epienv.data").joinpath(name)
+    if not resource.is_file():
+        message = "normative schema directory was not found"
+        raise FileNotFoundError(message)
+    return json.loads(resource.read_text(encoding="utf-8"))
 
 
 def check_suite(root: Path) -> SuiteReport:

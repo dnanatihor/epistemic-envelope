@@ -19,3 +19,21 @@ jobs:
       - run: uv run mypy
       - run: uv run pytest
       - run: uv run python scripts/check_conformance.py
+      - run: uv run mkdocs build --strict
+
+  quickstart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
+      - run: uv python install 3.12
+      - run: uv sync --all-groups
+      - name: Quickstart starts the reference server
+        run: |
+          uv run python -m examples.catalog_server &
+          pid=$!
+          sleep 3
+          kill -0 "$pid"
+          kill "$pid"

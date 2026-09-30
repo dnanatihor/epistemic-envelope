@@ -2,19 +2,17 @@
 
 from __future__ import annotations
 
-import json
 import re
 from collections.abc import Iterable
 from dataclasses import dataclass
 from functools import lru_cache
-from pathlib import Path
 from typing import Any, Literal, cast
 
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 from rfc3339_validator import validate_rfc3339  # type: ignore[import-untyped]
 
-from epienv.schema_check import LEVEL1_RESPONSE_SCHEMA
+from epienv.schema_check import LEVEL1_RESPONSE_SCHEMA, load_schema
 
 _PROVENANCE: dict[str, tuple[str, ...]] = {
     "certified": ("rule_id", "certified_by", "certified_at"),
@@ -428,27 +426,11 @@ def _escape(part: str) -> str:
     return part.replace("~", "~0").replace("/", "~1")
 
 
-def _schema_dir() -> Path:
-    for parent in Path(__file__).resolve().parents:
-        candidate = parent / "schema" / "envelope.v0.1.json"
-        if candidate.is_file() and (parent / "pyproject.toml").is_file():
-            return candidate.parent
-    message = "normative schema directory was not found"
-    raise FileNotFoundError(message)
-
-
 @lru_cache(maxsize=1)
 def _validators() -> tuple[Draft202012Validator, Draft202012Validator, Draft202012Validator]:
-    schema_dir = _schema_dir()
     checker = Draft202012Validator.FORMAT_CHECKER
-
-    def load(name: str) -> Draft202012Validator:
-        with (schema_dir / name).open(encoding="utf-8") as handle:
-            schema: dict[str, Any] = json.load(handle)
-        return Draft202012Validator(schema, format_checker=checker)
-
     return (
-        load("envelope.v0.1.json"),
-        load("labelled-object.v0.1.json"),
+        Draft202012Validator(load_schema("envelope.v0.1.json"), format_checker=checker),
+        Draft202012Validator(load_schema("labelled-object.v0.1.json"), format_checker=checker),
         Draft202012Validator(LEVEL1_RESPONSE_SCHEMA, format_checker=checker),
     )

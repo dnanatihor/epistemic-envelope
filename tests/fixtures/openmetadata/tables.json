@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": "table-uuid",
+      "name": "customers",
+      "fullyQualifiedName": "sample.shop.customers",
+      "columns": [
+        {
+          "name": "email",
+          "dataType": "VARCHAR"
+        }
+      ]
+    }
+  ],
+  "paging": {
+    "total": 1
+  }
+}
