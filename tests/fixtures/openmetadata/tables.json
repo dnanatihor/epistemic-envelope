@@ -1,15 +1,55 @@
 {
   "data": [
     {
-      "id": "table-uuid",
+      "id": "6a596e8f-dd07-4734-ab67-0c9cf19d048e",
       "name": "customers",
-      "fullyQualifiedName": "sample.shop.customers",
+      "fullyQualifiedName": "sample.shop.public.customers",
+      "version": 0.1,
+      "updatedAt": 1790823601586,
+      "updatedBy": "admin",
+      "href": "http://localhost:8585/api/v1/tables/6a596e8f-dd07-4734-ab67-0c9cf19d048e",
       "columns": [
         {
           "name": "email",
-          "dataType": "VARCHAR"
+          "dataType": "VARCHAR",
+          "dataLength": 320,
+          "dataTypeDisplay": "varchar",
+          "fullyQualifiedName": "sample.shop.public.customers.email",
+          "tags": [],
+          "children": []
         }
-      ]
+      ],
+      "databaseSchema": {
+        "id": "4b4cb6de-19d9-4db8-a1ba-fbd81f6aec01",
+        "type": "databaseSchema",
+        "name": "public",
+        "fullyQualifiedName": "sample.shop.public",
+        "displayName": "public",
+        "deleted": false,
+        "href": "http://localhost:8585/api/v1/databaseSchemas/4b4cb6de-19d9-4db8-a1ba-fbd81f6aec01"
+      },
+      "database": {
+        "id": "f1af98ba-ff65-4635-9573-b7ed713827bb",
+        "type": "database",
+        "name": "shop",
+        "fullyQualifiedName": "sample.shop",
+        "displayName": "shop",
+        "deleted": false,
+        "href": "http://localhost:8585/api/v1/databases/f1af98ba-ff65-4635-9573-b7ed713827bb"
+      },
+      "service": {
+        "id": "bc9cfae7-75bb-4671-abd5-dd9973348494",
+        "type": "databaseService",
+        "name": "sample",
+        "fullyQualifiedName": "sample",
+        "displayName": "sample",
+        "deleted": false,
+        "href": "http://localhost:8585/api/v1/services/databaseServices/bc9cfae7-75bb-4671-abd5-dd9973348494"
+      },
+      "serviceType": "Mysql",
+      "deleted": false,
+      "processedLineage": false,
+      "entityStatus": "Unprocessed"
     }
   ],
   "paging": {

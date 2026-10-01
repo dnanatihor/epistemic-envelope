@@ -55,7 +55,6 @@ Governance notice: AI-generated content is unverified and not certified.
 - An MCP Governance Auditor report for this server
 - A decision on whether the curated layer ships
 - Name and IP clearance
-- A live check of the OpenMetadata paths
 
 ## Licence
 

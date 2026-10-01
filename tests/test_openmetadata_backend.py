@@ -9,7 +9,7 @@ import httpx
 from examples.catalog_server.backends.openmetadata import OpenMetadataBackend
 
 _FIXTURES = Path(__file__).parent / "fixtures" / "openmetadata"
-_COLUMN = "sample.shop.customers.email"
+_COLUMN = "sample.shop.public.customers.email"
 
 
 def _load(name: str) -> object:
@@ -28,7 +28,10 @@ def _handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, json=_load("tables.json"))
     if path == "/api/v1/dataQuality/testCases":
         return httpx.Response(200, json=_load("test-cases.json"))
-    if path == "/api/v1/tables/table-uuid/columnProfile":
+    if path.endswith("/columnProfile"):
+        if "startTs" not in request.url.params or "endTs" not in request.url.params:
+            message = "column profiles require startTs and endTs"
+            raise AssertionError(message)
         return httpx.Response(200, json=_load("column-profile.json"))
     return httpx.Response(404)
 
@@ -47,7 +50,7 @@ def test_maps_recorded_quality_and_profile() -> None:
     assert any(asset.id == _COLUMN for asset in assets)
     findings = backend.get_dq_results(_COLUMN)
     assert findings[0].result == "pass"
-    assert findings[0].certified_by == "steward_a"
+    assert findings[0].certified_by == "admin"
     assert findings[0].certified_at == "2026-09-20T00:00:00Z"
     profile = backend.get_profile(_COLUMN)
     assert profile is not None

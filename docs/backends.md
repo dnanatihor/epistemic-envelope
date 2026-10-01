@@ -4,10 +4,20 @@
 
 `OpenMetadataBackend` is installed with `epistemic-envelope[openmetadata]`.
 It reads tables, data-quality test cases, and column profiles over REST.
-Paths come from the OpenMetadata v1.13 reference and were not verified
-against a running server. See `docs/adr/0003-openmetadata-endpoints.md`.
-The official Docker quickstart is the way to stand up a server; it is
-heavy and optional. Tests replay `tests/fixtures/openmetadata/`.
+
+The official Docker quickstart is heavy and optional. For 1.13.4:
+
+```bash
+mkdir openmetadata-docker && cd openmetadata-docker
+curl -fsSL -o docker-compose.yml \
+  https://github.com/open-metadata/OpenMetadata/releases/download/1.13.4-release/docker-compose.yml
+docker compose up -d
+```
+
+That starts MySQL, Elasticsearch, and the server on port 8585. The default
+login is `admin@open-metadata.org` / `admin`. Paths were checked against
+that version: see `docs/adr/0003-openmetadata-endpoints.md`. Tests replay
+`tests/fixtures/openmetadata/` and do not call a live server.
 
 ## LLM inferences
 

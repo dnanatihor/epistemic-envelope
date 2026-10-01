@@ -1,7 +1,6 @@
-"""OpenMetadata REST backend. Paths match the v1.13 API reference.
+"""OpenMetadata REST backend. Paths were checked on server 1.13.4.
 
-This client was not checked against a running OpenMetadata server. See
-docs/adr/0003-openmetadata-endpoints.md.
+See docs/adr/0003-openmetadata-endpoints.md.
 """
 
 from __future__ import annotations
@@ -72,10 +71,10 @@ class OpenMetadataBackend:
         asset = self.get_asset(asset_id)
         if asset.type != "column" or asset.table is None:
             return None
-        table = self._table_for(asset.id[: -(len(asset.name) + 1)])
+        end_ts = int(datetime.now(UTC).timestamp() * 1000)
         response = self._client.get(
-            f"/api/v1/tables/{quote(str(table['id']), safe='')}/columnProfile",
-            params={"columnName": asset.name},
+            f"/api/v1/tables/{quote(asset.id, safe='')}/columnProfile",
+            params={"startTs": "0", "endTs": str(end_ts)},
             headers=self._headers,
         )
         if response.status_code == 404:
@@ -97,13 +96,6 @@ class OpenMetadataBackend:
             response.raise_for_status()
             self._tables = _data(response.json())
         return self._tables
-
-    def _table_for(self, name: str) -> dict[str, Any]:
-        for table in self._tables_data():
-            if table.get("name") == name or table.get("fullyQualifiedName") == name:
-                return table
-        message = f"unknown table {name}"
-        raise KeyError(message)
 
 
 def _columns(table: dict[str, Any]) -> list[dict[str, Any]]:

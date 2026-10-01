@@ -1,15 +1,86 @@
 {
   "data": [
     {
+      "id": "59bb0de4-b023-419a-b959-c3b0ff08fab1",
       "name": "email_format",
-      "fullyQualifiedName": "sample.shop.customers.email.email_format",
-      "entityLink": "<#E::table::sample.shop.customers::columns::email>",
-      "updatedBy": "steward_a",
+      "fullyQualifiedName": "sample.shop.public.customers.email.email_format",
+      "entityLink": "<#E::table::sample.shop.public.customers::columns::email>",
+      "entityFQN": "sample.shop.public.customers.email",
+      "parameterValues": [
+        {
+          "name": "regex",
+          "value": ".+@.+"
+        }
+      ],
       "testCaseResult": {
+        "id": "62dfd9d0-9f5c-479a-b6af-43cb07f29dc3",
+        "testCaseFQN": "sample.shop.public.customers.email.email_format",
         "timestamp": 1789862400000,
         "testCaseStatus": "Success",
-        "result": "Email format rule passed"
-      }
+        "result": "Email format rule passed",
+        "testResultValue": [],
+        "dimensionResults": []
+      },
+      "testCaseStatus": "Success",
+      "version": 0.2,
+      "createdBy": "admin",
+      "updatedAt": 1790823602248,
+      "updatedBy": "admin",
+      "href": "http://localhost:8585/api/v1/dataQuality/testCases/59bb0de4-b023-419a-b959-c3b0ff08fab1",
+      "changeDescription": {
+        "fieldsAdded": [
+          {
+            "name": "testCaseStatus",
+            "newValue": "Success"
+          },
+          {
+            "name": "testCaseResult",
+            "newValue": {
+              "id": "62dfd9d0-9f5c-479a-b6af-43cb07f29dc3",
+              "result": "Email format rule passed",
+              "timestamp": 1789862400000,
+              "testCaseFQN": "sample.shop.public.customers.email.email_format",
+              "testCaseStatus": "Success",
+              "testResultValue": [],
+              "dimensionResults": []
+            }
+          }
+        ],
+        "fieldsUpdated": [],
+        "fieldsDeleted": [],
+        "previousVersion": 0.1,
+        "changeSummary": {}
+      },
+      "incrementalChangeDescription": {
+        "fieldsAdded": [
+          {
+            "name": "testCaseStatus",
+            "newValue": "Success"
+          },
+          {
+            "name": "testCaseResult",
+            "newValue": {
+              "id": "62dfd9d0-9f5c-479a-b6af-43cb07f29dc3",
+              "result": "Email format rule passed",
+              "timestamp": 1789862400000,
+              "testCaseFQN": "sample.shop.public.customers.email.email_format",
+              "testCaseStatus": "Success",
+              "testResultValue": [],
+              "dimensionResults": []
+            }
+          }
+        ],
+        "fieldsUpdated": [],
+        "fieldsDeleted": [],
+        "previousVersion": 0.1,
+        "changeSummary": {}
+      },
+      "deleted": false,
+      "computePassedFailedRowCount": false,
+      "useDynamicAssertion": false,
+      "dimensionColumns": [],
+      "topDimensions": 5,
+      "entityStatus": "Unprocessed"
     }
   ],
   "paging": {

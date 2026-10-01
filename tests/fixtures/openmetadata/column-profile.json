@@ -5,5 +5,10 @@
       "timestamp": 1789862400000,
       "nullProportion": 0.02
     }
-  ]
+  ],
+  "paging": {
+    "before": "MA==",
+    "after": "MTg5MzQ1NjAwMDAwMA==",
+    "total": 1
+  }
 }
