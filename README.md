@@ -1,7 +1,6 @@
 # Epistemic Envelope — Keep certified, observed, and inferred claims apart
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/epistemic-envelope)](https://pypi.org/project/epistemic-envelope/)
 
 ![demo](docs/demo.gif)
 
