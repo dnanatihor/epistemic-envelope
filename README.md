@@ -1,6 +1,5 @@
 # Epistemic Envelope — Keep certified, observed, and inferred claims apart
 
-[![CI](https://github.com/ovaledge/epistemic-envelope/actions/workflows/ci.yml/badge.svg)](https://github.com/ovaledge/epistemic-envelope/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/epistemic-envelope)](https://pypi.org/project/epistemic-envelope/)
 
